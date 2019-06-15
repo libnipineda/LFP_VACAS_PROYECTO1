@@ -5,6 +5,7 @@
  */
 package Ventanas;
 
+import Lexico.Analizador;
 import Listas.ListaTkn;
 import java.io.*;
 import javax.swing.JFileChooser;
@@ -198,13 +199,9 @@ public class Formulario1 extends javax.swing.JFrame {
 
     private void ANALIZARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANALIZARActionPerformed
         // TODO add your handling code here:
-        ListaTkn lista = new ListaTkn();
-        lista.adicionar(0,"Hola mundo", 0, 0, 1, "Cadena");
-        lista.adicionar(1,"Libni pineda", 1, 1, 1, "Cadena");
-        lista.adicionar(2,"Funciona lista", 2, 2, 1, "Cadena");
-        lista.adicionar(3,"El proyecto tengo que sacar buena nota", 3, 3, 1, "Cadena");
-         
-        lista.imprimir();
+    Analizador leer = new Analizador();
+    leer.Scanner(txtArea.getText());
+    
     }//GEN-LAST:event_ANALIZARActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
