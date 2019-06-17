@@ -18,7 +18,7 @@ public class Analizador {
     ELista listaE = new ELista();
     int idtkn;
     int nutknen = 0;
-    int idtkns = 13; // numero de tokens definidos
+    int idtkns = 19; // numero de tokens definidos
     int fila = 0;
     int columna = 0;
     String token = "";
@@ -67,9 +67,10 @@ public class Analizador {
                     }
                     else{
                        Patron(concatenar); i--; estado = estado-1; estado =0;
+                       int a = 19;
 //                       System.out.println("Estado 2");
-//                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
-                       lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);                      
+//                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: Numero"+" idtkn: "+a);
+                       lista.adicionar(nutknen, concatenar, fila, columna, a, "Numero");                      
                        nutknen++; concatenar="";
                     }
                     break;
@@ -141,7 +142,7 @@ public class Analizador {
                 token = "Palabra Reservada."; idtkn = 5;
                 break;
             case "codigo":
-                token = "Palabra Reservada."; idtkn = 6;
+                token = "Identificador."; idtkn = 6;
                 break;
             case "nombre":
                 token = "Palabra Reservada."; idtkn = 7;
@@ -185,14 +186,13 @@ public class Analizador {
         }            
     } 
     
-    public void verTkn(){
-        //lista.Escribir();
+    public void verTkn(){        
         lista.imprimir();
     }
     
-    public void verError(){
-        //listaE.Error();
+    public void verError(){        
         listaE.Errorimprimir();
     }
+
     
 }

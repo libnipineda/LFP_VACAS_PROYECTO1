@@ -11,12 +11,11 @@ package Listas;
  */
 public class ListaTkn {
     
-    NodoTkn inicio;    
-    int tamaño;        
+    NodoTkn inicio;
+    int tamaño;
     
-   public boolean adicionar(int numero, String lexema, int fila, int columna, int idtkn, String tkn){
-       
-      if(inicio==null)
+    public boolean adicionar(int numero, String lexema, int fila, int columna, int idtkn, String tkn){
+      if(inicio == null)
       {
           inicio = new NodoTkn(null, numero,lexema,fila,columna,idtkn,tkn);
           tamaño++;
@@ -27,8 +26,8 @@ public class ListaTkn {
           while(temp.tieneSiguiente()){
               temp = temp.getSiguiente();
           }
-          temp.setSiguiente(new NodoTkn(null, numero,lexema,fila,columna,idtkn,tkn));
-          tamaño++;          
+          temp.setSiguiente( new NodoTkn(null, numero,lexema,fila,columna,idtkn,tkn));
+          tamaño++;
           return true;
       }
     }
@@ -40,7 +39,8 @@ public class ListaTkn {
         }        
         else
         {
-            System.out.println("Datos insertados correctamente.");            
+            System.out.println("Datos insertados correctamente.");
         }
-    }             
+    }
+            
 }
