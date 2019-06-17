@@ -207,14 +207,14 @@ public class Formulario1 extends javax.swing.JFrame {
 
     private void Reporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte1ActionPerformed
         // TODO add your handling code here:
-        ListaTkn lista = new ListaTkn();
-        lista.imprimir();
+        Analizador an = new Analizador();
+        an.verTkn();
     }//GEN-LAST:event_Reporte1ActionPerformed
 
     private void Reporte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte2ActionPerformed
         // TODO add your handling code here:
-        ELista lista = new ELista();
-        lista.Errorimprimir();
+        Analizador an = new Analizador();
+        an.verError();
     }//GEN-LAST:event_Reporte2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed

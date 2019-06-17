@@ -51,6 +51,7 @@ public class Analizador {
                     else
                     {
                         JOptionPane.showMessageDialog(null,"Error encontrado en la fila" + fila);
+                        
                     }
                     break;
                 case 1:
@@ -186,10 +187,10 @@ public class Analizador {
     }
             
     public void verTkn(){
-        lista.imprimir();        
+        lista.Escribir();
     }
     
     public void verError(){
-        listaE.Errorimprimir();
+        listaE.Error();
     }
 }

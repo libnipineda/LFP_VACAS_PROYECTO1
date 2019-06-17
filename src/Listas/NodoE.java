@@ -86,9 +86,7 @@ public class NodoE {
 
     public void setSig(NodoE sig) {
         this.sig = sig;
-    }
-
-        
+    }        
     
     public boolean Errorsiguiente(){
         return sig!=null;
