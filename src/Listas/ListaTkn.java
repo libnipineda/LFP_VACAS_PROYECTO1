@@ -41,6 +41,5 @@ public class ListaTkn {
         {
             System.out.println("Datos insertados correctamente.");
         }
-    }
-            
+    }             
 }

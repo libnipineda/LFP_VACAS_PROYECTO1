@@ -18,120 +18,171 @@ public class Analizador {
     ELista listaE = new ELista();
     int idtkn;
     int nutknen = 0;
-    int idtkns = 0; // numero de tokens definidos
+    int idtkns = 13; // numero de tokens definidos
     int fila = 0;
     int columna = 0;
     String token = "";
+    int estado = 0;
+    String concatenar ="", Etoken="";
     
-    
-    public void Scanner(String entrada)
-    {
-       int estado = 0;
-       String concatenar="";
-       String Econcatenar = "";
-       
-       char tab,salto,espacio,comillas,mayorque,menorque,igual,barra;
-       tab = (char)9; salto = (char)10; espacio = (char)32;
-       comillas = (char)34; mayorque = (char)62; igual = (char)61; menorque = (char)60;barra = (char)47;
-       for(int j =0; j < entrada.length(); j++){
-           switch(estado){
-               case 0:
-                   if(entrada.charAt(j)==(tab) || entrada.charAt(j)==(salto) || entrada.charAt(j)==(espacio))
-                   {
-                       estado=0; concatenar += entrada.charAt(j); fila++; columna++;
-                   }
-                   else if(Character.isLetter(entrada.charAt(j)))
-                   {
-                       estado =1; concatenar += entrada.charAt(j); columna++;
-                   }
-                   else if(Character.isDigit(entrada.charAt(j)))
-                   {
-                    estado = 2; concatenar += entrada.charAt(j); columna++;
-                   }
-                   else if(entrada.charAt(j)==(mayorque) || entrada.charAt(j)==(menorque) || entrada.charAt(j)==(barra) || entrada.charAt(j)==(igual))
-                   {
-                       estado =3; concatenar += entrada.charAt(j); columna++;
-                   }
-                   else if(entrada.charAt(j)==(comillas))
-                   {
-                       estado =4; concatenar += entrada.charAt(j); columna++;
-                   }
-                   else
-                   {
-                       Econcatenar += entrada.charAt(j);
-                       listaE.registrar(nutknen, Econcatenar, columna, fila,"Valor desconocido", idtkn);
-                       nutknen++; concatenar=""; Econcatenar=""; estado=0;
-                   }
-                   break;
-               case 1:
-                   if(Character.isLetter(entrada.charAt(j)))
-                   {
-                       estado = 1; concatenar += entrada.charAt(j); columna++;
-                   }
-                   else if(Character.isDigit(entrada.charAt(j)))
-                   {
-                       estado = 1; concatenar += entrada.charAt(j); columna++;
-                   }
-                   else
-                   {
-                       Patron(concatenar); j--; estado = estado-1; estado=0;
-                       lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
-                       nutknen++; concatenar="";
-                   }
-                   break;
+    public void Scanner(String cadena){
+        // variables de codigo ascii
+        char tabular,espacio,salto,etiquetaA,etiquetaC,igual,barra,comillas;
+        tabular = (char)9; espacio = (char)32; salto = (char)10; etiquetaA = (char)60; etiquetaC = (char)62; igual = (char)61; barra = (char)47; comillas = (char)34;
+        for(int i=0; i < cadena.length();i++){
+            switch(estado){
+                case 0:
+                    if( cadena.charAt(i) == tabular || cadena.charAt(i) == espacio || cadena.charAt(i) == salto) // 
+                    {
+                        estado =0; fila++; columna++;
+                    }
+                    else if(Character.isLetter(cadena.charAt(i))){
+                        estado = 1; concatenar += cadena.charAt(i); columna++;
+                    }
+                    else if(Character.isDigit(cadena.charAt(i))){
+                        estado = 2; concatenar += cadena.charAt(i); columna++;
+                    }
+                    else if(cadena.charAt(i) == etiquetaA || cadena.charAt(i) == etiquetaC || cadena.charAt(i) == igual || cadena.charAt(i) == barra){
+                        estado = 3; columna++; concatenar += cadena.charAt(i);
+                    }
+                    else if(cadena.charAt(i) == comillas){
+                        estado = 4; columna++; concatenar += cadena.charAt(i);
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"Error encontrado");
+                    }
+                    break;
+                case 1:
+                    if(Character.isLetter(cadena.charAt(i))){
+                        estado = 5; columna++; concatenar += cadena.charAt(i);
+                    }
+                    else if(Character.isDigit(cadena.charAt(i))){
+                        estado = 5; columna++; concatenar += cadena.charAt(i);
+                    }
+                    break;
                 case 2:
-                    if(Character.isDigit(entrada.charAt(j)))
-                    {
-                        estado = 2; concatenar += entrada.charAt(j); columna++;
+                    if(Character.isDigit(cadena.charAt(i))){
+                        estado = 2; columna++; concatenar += cadena.charAt(i);
                     }
-                    else
-                    {
-                       Patron(concatenar); j--; estado = estado-1; estado=0;
+                    else{
+                       Patron(concatenar); i--; estado = estado-1; estado =0;
+                       System.out.println("Estado 2");
+                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
                        lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
                        nutknen++; concatenar="";
                     }
-                   break;
+                    break;
                 case 3:
-                       Patron(concatenar); j--; estado = estado-1; estado=0;
-                       lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
-                       nutknen++; concatenar="";
-                   break;
+                    Patron(concatenar); i--; estado = estado-1; estado =0;
+                    System.out.println("Estado 3");
+                    System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
+                    lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
+                    nutknen++; concatenar="";
+                    break;
                 case 4:
-                    estado = 5; concatenar += entrada.charAt(j); columna++;
-                   break;
+                    if(cadena.charAt(i) == comillas){
+                        estado = 6; columna++; concatenar += cadena.charAt(i);
+                    }                    
+                    break;
                 case 5:
-                    if(entrada.charAt(j)==(comillas))
-                    {
-                        estado = 6; concatenar += entrada.charAt(j); columna++;
+                    if(Character.isLetter(cadena.charAt(i))){
+                        estado = 5; columna++; concatenar += cadena.charAt(i);
                     }
-                    else
-                    {
-                        estado = 5; concatenar += entrada.charAt(j); columna++;
+                    else if(Character.isDigit(cadena.charAt(i))){
+                        estado = 5; columna++; concatenar += cadena.charAt(i);
                     }
-                   break;
-                case 6:
-                       Patron(concatenar); j--; estado = estado-1; estado=0;
+                    else{
+                       Patron(concatenar); i--; estado = estado-1; estado =0;
+                       System.out.println("Estado 5");
+                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
                        lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
                        nutknen++; concatenar="";
-                   break;
-           }
-       }
-       JOptionPane.showMessageDialog(null,"Analisis completo");
-       verTkn(); verError();
+                    }
+                    break;
+                case 6:
+                    if(cadena.charAt(i) == comillas){
+                        estado = 7; columna++; concatenar += cadena.charAt(i);
+                    }
+                    else{
+                        estado = 6; columna++; concatenar += cadena.charAt(i);
+                    }
+                    break;
+                case 7:
+                  Patron(concatenar); i--; estado = estado-1; estado =0;
+                  System.out.println("Estado 7");
+                  System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
+                  lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
+                  nutknen++; concatenar="";
+                    break;
+            }
+        }
     }
 
     public void Patron(String tkn){
         tkn.trim();
         switch(tkn){
-            case "":
+            case "<":
+                token = "Signo <."; idtkn = 1;
                 break;
+            case ">":
+                token = "Signo >."; idtkn = 2;
+                break;
+            case "/":
+                token = "Signo /."; idtkn = 3;
+            case "=":
+                token = "Signo igual."; idtkn = 4;
+                break;
+            case "Nivel":
+                token = "Palabra Reservada."; idtkn = 5;
+                break;
+            case "codigo":
+                token = "Palabra Reservada."; idtkn = 6;
+                break;
+            case "nombre":
+                token = "Palabra Reservada."; idtkn = 7;
+                break;
+            case "Edificio":
+                token = "Palabra Reservada."; idtkn = 8;
+                break;
+            case "DimensionX":
+                token = "Palabra Reservada."; idtkn =9;
+                break;
+            case "DimensionY":
+                token = "Palabra Reservada."; idtkn = 10;
+                break;
+            case "Bloque":
+                token = "Palabra Reservada."; idtkn = 11;
+                break;
+            case "PosicionX":
+                token = "Palabra Reservada."; idtkn = 12;
+                break;
+            case "PosicionY":
+                token = "Palabra Reservada."; idtkn = 13;
+                break;
+            case "Escalera":
+                token = "Palabra Reservada."; idtkn = 14;
+                break;
+            case "Personaje":
+                token = "Palabra Reservada."; idtkn = 15;
+                break;
+            case "imagen":
+                token = "Palabra Reservada."; idtkn = 16;
+                break;
+            case "Enemigo":
+                token = "Palabra Reservada."; idtkn = 17;
+                break;
+            case "Movimiento":
+                token = "Palabra Reservada."; idtkn = 18;
+                break;                
             default:
+                token = "Cadena"; idtkns++; idtkn = idtkns;
                 break;
         }            
     }
             
     public void verTkn(){
-        lista.imprimir();
+        lista.imprimir();        
     }
     
     public void verError(){
