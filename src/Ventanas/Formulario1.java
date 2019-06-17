@@ -6,6 +6,7 @@
 package Ventanas;
 
 import Lexico.Analizador;
+import Listas.ELista;
 import Listas.ListaTkn;
 import java.io.*;
 import javax.swing.JFileChooser;
@@ -48,8 +49,8 @@ public class Formulario1 extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         ANALIZAR = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        Reporte1 = new javax.swing.JMenuItem();
+        Reporte2 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -109,21 +110,21 @@ public class Formulario1 extends javax.swing.JFrame {
 
         jMenu5.setText("Reportes");
 
-        jMenuItem1.setText("Reporte de Símbolos");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        Reporte1.setText("Reporte de Símbolos");
+        Reporte1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                Reporte1ActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem1);
+        jMenu5.add(Reporte1);
 
-        jMenuItem2.setText("Reporte de Errores");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        Reporte2.setText("Reporte de Errores");
+        Reporte2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                Reporte2ActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem2);
+        jMenu5.add(Reporte2);
 
         jMenuBar1.add(jMenu5);
 
@@ -204,13 +205,17 @@ public class Formulario1 extends javax.swing.JFrame {
     
     }//GEN-LAST:event_ANALIZARActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void Reporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        ListaTkn lista = new ListaTkn();
+        lista.imprimir();
+    }//GEN-LAST:event_Reporte1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void Reporte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        ELista lista = new ELista();
+        lista.Errorimprimir();
+    }//GEN-LAST:event_Reporte2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
@@ -377,14 +382,14 @@ public class Formulario1 extends javax.swing.JFrame {
     private javax.swing.JMenuItem ANALIZAR;
     private javax.swing.JMenuItem GUARDAR;
     private javax.swing.JMenuItem GUARDARC;
+    private javax.swing.JMenuItem Reporte1;
+    private javax.swing.JMenuItem Reporte2;
     private javax.swing.JMenuItem SALIR;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
