@@ -25,14 +25,14 @@ public class Analizador {
     int estado = 0;
     String concatenar ="", Etoken="";
     
-    public void Scanner(String cadena){
+   public void Scanner(String cadena){
         // variables de codigo ascii
-        char tabular,espacio,salto,etiquetaA,etiquetaC,igual,barra,comillas,iniciot;
-        iniciot = (char)2;tabular = (char)9; espacio = (char)32; salto = (char)10; etiquetaA = (char)60; etiquetaC = (char)62; igual = (char)61; barra = (char)47; comillas = (char)34;
+        char tabular,espacio,salto,etiquetaA,etiquetaC,igual,barra,comillas,iniciot,enter;
+        enter = (char)13;iniciot = (char)2;tabular = (char)9; espacio = (char)32; salto = (char)10; etiquetaA = (char)60; etiquetaC = (char)62; igual = (char)61; barra = (char)47; comillas = (char)34;
         for(int i=0; i < cadena.length();i++){
             switch(estado){
                 case 0:
-                    if( cadena.charAt(i) == tabular || cadena.charAt(i) == espacio || cadena.charAt(i) == salto || cadena.charAt(i) == iniciot) // 
+                    if( cadena.charAt(i) == tabular || cadena.charAt(i) == espacio || cadena.charAt(i) == salto || cadena.charAt(i) == iniciot || cadena.charAt(i) == enter) // 
                     {
                         estado =0; fila++; columna++;
                     }
@@ -49,9 +49,8 @@ public class Analizador {
                         estado = 4; columna++; concatenar += cadena.charAt(i);
                     }
                     else
-                    {
-                        JOptionPane.showMessageDialog(null,"Error encontrado en la fila" + fila);
-                        
+                    {                        
+                        System.out.println("Error encontrado en la fila" + fila);
                     }
                     break;
                 case 1:
@@ -68,17 +67,17 @@ public class Analizador {
                     }
                     else{
                        Patron(concatenar); i--; estado = estado-1; estado =0;
-                       System.out.println("Estado 2");
-                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
-                       lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
+//                       System.out.println("Estado 2");
+//                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
+                       lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);                      
                        nutknen++; concatenar="";
                     }
                     break;
                 case 3:
                     Patron(concatenar); i--; estado = estado-1; estado =0;
-                    System.out.println("Estado 3");
-                    System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
-                    lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
+//                    System.out.println("Estado 3");
+//                    System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
+                    lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);                    
                     nutknen++; concatenar="";
                     break;
                 case 4:
@@ -98,9 +97,9 @@ public class Analizador {
                     }
                     else{
                        Patron(concatenar); i--; estado = estado-1; estado =0;
-                       System.out.println("Estado 5");
-                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
-                       lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
+//                       System.out.println("Estado 5");
+//                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
+                       lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);                       
                        nutknen++; concatenar="";
                     }
                     break;
@@ -114,9 +113,9 @@ public class Analizador {
                     break;
                 case 7:
                   Patron(concatenar); i--; estado = estado-1; estado =0;
-                  System.out.println("Estado 7");
-                  System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
-                  lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
+//                  System.out.println("Estado 7");
+//                  System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
+                  lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);                  
                   nutknen++; concatenar="";
                     break;
             }
@@ -184,13 +183,16 @@ public class Analizador {
                 token = "Cadena"; idtkns++; idtkn = idtkns;
                 break;
         }            
-    }
-            
+    } 
+    
     public void verTkn(){
-        lista.Escribir();
+        //lista.Escribir();
+        lista.imprimir();
     }
     
     public void verError(){
-        listaE.Error();
+        //listaE.Error();
+        listaE.Errorimprimir();
     }
+    
 }

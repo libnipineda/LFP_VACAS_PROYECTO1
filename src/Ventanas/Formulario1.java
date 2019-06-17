@@ -8,6 +8,7 @@ package Ventanas;
 import Lexico.Analizador;
 import Listas.ELista;
 import Listas.ListaTkn;
+import java.awt.Desktop;
 import java.io.*;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -201,13 +202,12 @@ public class Formulario1 extends javax.swing.JFrame {
     private void ANALIZARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANALIZARActionPerformed
         // TODO add your handling code here:
     Analizador leer = new Analizador();
-    leer.Scanner(txtArea.getText());
-    
+    leer.Scanner(txtArea.getText());    
     }//GEN-LAST:event_ANALIZARActionPerformed
 
     private void Reporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte1ActionPerformed
         // TODO add your handling code here:
-        Analizador an = new Analizador();
+        Analizador an = new Analizador(); 
         an.verTkn();
     }//GEN-LAST:event_Reporte1ActionPerformed
 
@@ -219,14 +219,43 @@ public class Formulario1 extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null,"LFP PRACTICA\n Uzzi Libni Aarón Pineda Solórzano \n carné: 201403541");
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
+     try
+     {
+         File f = new File("E:/Lenguajes/Vacaciones/[LFP]Proyecto1_201403541/Manual de Usuario.pdf");
+         Desktop.getDesktop().open(f);
+     }
+     catch(IOException e)
+     {
+         e.printStackTrace();;
+     }
+     catch(IllegalArgumentException e)
+     {
+         JOptionPane.showMessageDialog(null, "Archivo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+         e.printStackTrace();
+     }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
+        try
+        {
+            File f = new File("E:/Lenguajes/Vacaciones/[LFP]Proyecto1_201403541/Manual Técnico.pdf");
+            Desktop.getDesktop().open(f);
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();;
+        }
+        catch(IllegalArgumentException e)
+        {
+            JOptionPane.showMessageDialog(null, "Archivo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void GUARDARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GUARDARActionPerformed

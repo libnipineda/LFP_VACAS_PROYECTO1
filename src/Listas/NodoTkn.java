@@ -10,13 +10,13 @@ package Listas;
  * @author libni
  */
 public class NodoTkn {
-    private int numero;
-    private String lexema;
-    private int fila;
-    private int columna;
-    private int idtkn;
-    private String tkn;
-    private NodoTkn siguiente;
+    int numero;
+    String lexema;
+    int fila;
+    int columna;
+    int idtkn;
+    String tkn;
+    NodoTkn siguiente;
     
 
     public NodoTkn(){        
@@ -88,7 +88,6 @@ public class NodoTkn {
         this.tkn = tkn;
     }
     
-
     public boolean tieneSiguiente(){
      return siguiente!=null;       
     }    
