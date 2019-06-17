@@ -27,12 +27,12 @@ public class Analizador {
     
     public void Scanner(String cadena){
         // variables de codigo ascii
-        char tabular,espacio,salto,etiquetaA,etiquetaC,igual,barra,comillas;
-        tabular = (char)9; espacio = (char)32; salto = (char)10; etiquetaA = (char)60; etiquetaC = (char)62; igual = (char)61; barra = (char)47; comillas = (char)34;
+        char tabular,espacio,salto,etiquetaA,etiquetaC,igual,barra,comillas,iniciot;
+        iniciot = (char)2;tabular = (char)9; espacio = (char)32; salto = (char)10; etiquetaA = (char)60; etiquetaC = (char)62; igual = (char)61; barra = (char)47; comillas = (char)34;
         for(int i=0; i < cadena.length();i++){
             switch(estado){
                 case 0:
-                    if( cadena.charAt(i) == tabular || cadena.charAt(i) == espacio || cadena.charAt(i) == salto) // 
+                    if( cadena.charAt(i) == tabular || cadena.charAt(i) == espacio || cadena.charAt(i) == salto || cadena.charAt(i) == iniciot) // 
                     {
                         estado =0; fila++; columna++;
                     }
@@ -50,7 +50,7 @@ public class Analizador {
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null,"Error encontrado");
+                        JOptionPane.showMessageDialog(null,"Error encontrado en la fila" + fila);
                     }
                     break;
                 case 1:
@@ -82,8 +82,11 @@ public class Analizador {
                     break;
                 case 4:
                     if(cadena.charAt(i) == comillas){
+                        estado = 7; columna++; concatenar += cadena.charAt(i);
+                    }
+                    else{
                         estado = 6; columna++; concatenar += cadena.charAt(i);
-                    }                    
+                    }
                     break;
                 case 5:
                     if(Character.isLetter(cadena.charAt(i))){
@@ -117,6 +120,7 @@ public class Analizador {
                     break;
             }
         }
+        JOptionPane.showMessageDialog(null, "Analisis Completado");
     }
 
     public void Patron(String tkn){
