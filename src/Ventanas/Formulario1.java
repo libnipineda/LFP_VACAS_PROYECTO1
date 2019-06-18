@@ -51,6 +51,7 @@ public class Formulario1 extends javax.swing.JFrame {
         SALIR = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         ANALIZAR = new javax.swing.JMenuItem();
+        Juego = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         Reporte1 = new javax.swing.JMenuItem();
         Reporte2 = new javax.swing.JMenuItem();
@@ -108,6 +109,14 @@ public class Formulario1 extends javax.swing.JFrame {
             }
         });
         jMenu3.add(ANALIZAR);
+
+        Juego.setText("Jugar");
+        Juego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JuegoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(Juego);
 
         jMenuBar1.add(jMenu3);
 
@@ -322,6 +331,13 @@ public class Formulario1 extends javax.swing.JFrame {
           
         } 
     }//GEN-LAST:event_SALIRActionPerformed
+
+    private void JuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JuegoActionPerformed
+        // TODO add your handling code here:
+         Formulario frm = new Formulario();
+         frm.setVisible(true);
+         this.setVisible(false);
+    }//GEN-LAST:event_JuegoActionPerformed
 
     public String Abrir(File archivo)
     {
@@ -729,6 +745,7 @@ public class Formulario1 extends javax.swing.JFrame {
     private javax.swing.JMenuItem ANALIZAR;
     private javax.swing.JMenuItem GUARDAR;
     private javax.swing.JMenuItem GUARDARC;
+    private javax.swing.JMenuItem Juego;
     private javax.swing.JMenuItem Reporte1;
     private javax.swing.JMenuItem Reporte2;
     private javax.swing.JMenuItem SALIR;
