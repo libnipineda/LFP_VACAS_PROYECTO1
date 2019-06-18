@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Lexico;
 
+import Funciones.Proceso;
 import Listas.ELista;
 import Listas.ListaTkn;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author libni
- */
 public class Analizador {
     ListaTkn lista = new ListaTkn();
     ELista listaE = new ELista();
@@ -29,6 +21,7 @@ public class Analizador {
         // variables de codigo ascii
         char tabular,espacio,salto,etiquetaA,etiquetaC,igual,barra,comillas,iniciot,enter;
         enter = (char)13;iniciot = (char)2;tabular = (char)9; espacio = (char)32; salto = (char)10; etiquetaA = (char)60; etiquetaC = (char)62; igual = (char)61; barra = (char)47; comillas = (char)34;
+       
         for(int i=0; i < cadena.length();i++){
             switch(estado){
                 case 0:
@@ -51,6 +44,9 @@ public class Analizador {
                     else
                     {                        
                         System.out.println("Error encontrado en la fila" + fila);
+                        Etoken += cadena.charAt(i);
+                        listaE.registrar(nutknen, Etoken, fila, columna, "Valor Desconocido.", idtkn);
+                        Etoken =""; concatenar = "";
                     }
                     break;
                 case 1:
@@ -69,8 +65,8 @@ public class Analizador {
                        Patron(concatenar); i--; estado = estado-1; estado =0;
                        int a = 19;
 //                       System.out.println("Estado 2");
-//                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: Numero"+" idtkn: "+a);
-                       lista.adicionar(nutknen, concatenar, fila, columna, a, "Numero");                      
+//                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: Numero"+" idtkn: "+a);                       
+                       lista.adicionar(nutknen, concatenar, fila, columna, a, "Numero");
                        nutknen++; concatenar="";
                     }
                     break;
@@ -142,7 +138,7 @@ public class Analizador {
                 token = "Palabra Reservada."; idtkn = 5;
                 break;
             case "codigo":
-                token = "Identificador."; idtkn = 6;
+                token = "Identificador ."; idtkn = 6;
                 break;
             case "nombre":
                 token = "Palabra Reservada."; idtkn = 7;
@@ -187,12 +183,16 @@ public class Analizador {
     } 
     
     public void verTkn(){        
-        lista.imprimir();
+        lista.imprimir();        
     }
     
     public void verError(){        
+        Thread hilo = new Proceso("Proceso 1");
+        Thread hilo2 = new Proceso("Proceso 2");
+        
+        hilo.start();
+        hilo2.start();
         listaE.Errorimprimir();
     }
-
     
 }

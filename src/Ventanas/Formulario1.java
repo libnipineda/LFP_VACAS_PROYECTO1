@@ -204,7 +204,8 @@ public class Formulario1 extends javax.swing.JFrame {
     private void ANALIZARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANALIZARActionPerformed
         // TODO add your handling code here:
     Analizador leer = new Analizador();
-    leer.Scanner(txtArea.getText());    
+    leer.Scanner(txtArea.getText());
+//    Pintar();
     }//GEN-LAST:event_ANALIZARActionPerformed
 
     private void Reporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte1ActionPerformed

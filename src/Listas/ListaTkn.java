@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Listas;
 
 /**
@@ -32,7 +27,7 @@ public class ListaTkn {
       }
     }
     
-    public void imprimir(){
+   public void imprimir(){
         if(inicio == null)
         {
             System.out.println("No se registro ningun dato.");
@@ -41,6 +36,6 @@ public class ListaTkn {
         {
             System.out.println("Datos insertados correctamente.");
         }
-    }
-            
+    } 
+   
 }

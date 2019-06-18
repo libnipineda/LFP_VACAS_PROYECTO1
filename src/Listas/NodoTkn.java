@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Listas;
 
 /**
@@ -10,6 +5,7 @@ package Listas;
  * @author libni
  */
 public class NodoTkn {
+    
     private int numero;
     private String lexema;
     private int fila;
@@ -86,8 +82,7 @@ public class NodoTkn {
 
     public void setTkn(String tkn) {
         this.tkn = tkn;
-    }
-    
+    }    
 
     public boolean tieneSiguiente(){
      return siguiente!=null;       
