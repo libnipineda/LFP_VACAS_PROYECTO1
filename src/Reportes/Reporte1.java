@@ -22,7 +22,7 @@ public class Reporte1 {
          PrintWriter write = new PrintWriter(archivo);
          write.println("<html>");
          write.println("<head>");
-         write.println("<title> LFP PRACTICA NO. 1  TABLA DE TOKEN´S</title>");
+         write.println("<title> LFP PROYECTO NO. 1  TABLA DE TOKEN´S</title>");
          write.println("</head>");
          write.println("<body>");
          write.println("<h1> Listado de Tokens</h1>");
@@ -31,16 +31,13 @@ public class Reporte1 {
          write.println("<td><strong>No</strong></td>");
          write.println("<td><strong>Lexema</strong></td>");
          write.println("<td><strong>ID_Token</strong></td>");
-         write.println("<td><strong>Token</strong></td>");
-        write.println("<td><strong>Fila</strong></td>");
-        write.println("<td><strong>Columna</strong></td>");
+         write.println("<td><strong>Token</strong></td>");         
          write.println("</tr>");
          write.println(datos);
          write.println( "</table>");
          write.println("</body>");
          write.println( "</html>");
-        archivo.close();
-        Abrir();
+        archivo.close();        
         }
         catch(Exception e)
         {
@@ -89,8 +86,7 @@ public class Reporte1 {
         write.println("</table>");
         write.println("</body>");
         write.println("</html>");
-        file.close();
-        EAbrir();
+        file.close();        
         }
         catch(Exception e)
         {

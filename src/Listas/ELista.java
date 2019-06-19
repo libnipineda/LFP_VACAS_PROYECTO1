@@ -18,10 +18,8 @@ public class ELista {
     NodoE star;
     int count;
     
-//    int a,c,d;
-//    String b,e,html;
-//    
-//    Reporte1 rp = new Reporte1();
+    Reporte1 rp = new Reporte1();
+    String reporte;
     
     public boolean registrar(int number, String elex, int ecol, int efila, String etkn, int eid){
         if(star == null){
@@ -32,10 +30,11 @@ public class ELista {
         else{
             NodoE aux = star;
             while(aux.Errorsiguiente()){
-                aux.Errorsiguiente();
+                aux = aux.getSig();
             }
             aux.setSig(new NodoE(null,number,elex,ecol,efila,etkn,eid));
             count++;
+            Errorimprimir();
             return true;
         }
     }
@@ -50,23 +49,18 @@ public class ELista {
         {
             System.out.println("Hay errores");
             JOptionPane.showMessageDialog(null,"Hay errores.");
+            NodoE temp = star;
+            while(temp.Errorsiguiente()){
+                temp = temp.getSig();
+            }
+            reporte = "<tr>"
+                    +"<td><strong>" + temp.getEnum() + "</td></strong>"
+                    +"<td><strong>" + temp.getElex() + "</td></strong>"
+                    +"<td><strong>" + temp.getEcol() + "</td></strong>"
+                    +"<td><strong>" + temp.getEfila() + "</td></strong>"
+                    +"<td><strong>" + temp.getEtoken() + "</td></strong>"
+                    +"</tr>";
+            rp.ReporteError(reporte);
         }
-    }
-        
-//    public void Error(){
-//     NodoE actual = star;
-//     html = "";
-//     while(actual != null){
-//         a = actual.getEnum(); b = actual.getElex(); c = actual.getEcol(); d = actual.getEcol(); e = actual.getEtoken();
-//         html = html + "<tr>"
-//                      + "<td><strong>" + a + "</strong></td>"
-//                      + "<td><strong>" + b + "</strong></td>"
-//                      + "<td><strong>" + c + "</strong></td>"
-//                      + "<td><strong>" + d + "</strong></td>"
-//                      + "<td><strong>" + e + "</strong></td>"
-//                      + "</tr>";         
-//         actual.Errorsiguiente();
-//     }
-//     rp.ReporteError(html);
-//    }    
+    }           
 }

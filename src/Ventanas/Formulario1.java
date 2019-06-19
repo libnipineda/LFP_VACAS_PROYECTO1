@@ -1,32 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Lexico.Analizador;
 import Listas.ELista;
-import Listas.ListaTkn;
+//import Listas.ListaTkn;
 import Listas.NodoTkn;
+import Reportes.Reporte1;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.*;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author libni
- */
+
 public class Formulario1 extends javax.swing.JFrame {
    JFileChooser seleccionar = new JFileChooser();
    File archivo;
    FileInputStream entrada;
    FileOutputStream salida;
-    /**
-     * Creates new form Formulario1
-     */
+    
     public Formulario1() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -219,14 +210,14 @@ public class Formulario1 extends javax.swing.JFrame {
 
     private void Reporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte1ActionPerformed
         // TODO add your handling code here:
-        Analizador an = new Analizador(); 
-        an.verTkn();
+        Reporte1 ver = new Reporte1();
+        ver.Abrir();
     }//GEN-LAST:event_Reporte1ActionPerformed
 
     private void Reporte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte2ActionPerformed
         // TODO add your handling code here:
-        Analizador an = new Analizador();
-        an.verError();
+        Reporte1 ver = new Reporte1();
+        ver.EAbrir();
     }//GEN-LAST:event_Reporte2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed

@@ -45,7 +45,7 @@ public class Analizador {
                     }
                     else
                     {                        
-                        System.out.println("Error encontrado en la fila" + fila);
+                        System.out.println("Error encontrado en la fila " + fila);
                         Etoken += cadena.charAt(i);
                         listaE.registrar(nutknen, Etoken, fila, columna, "Valor Desconocido.", idtkn);
                         Etoken =""; concatenar = "";
@@ -188,17 +188,12 @@ public class Analizador {
         }            
     } 
     
-    public void verTkn(){        
-        lista.imprimir();        
-    }
-    
     public void verError(){        
         Thread hilo = new Proceso("Proceso 1");
         Thread hilo2 = new Proceso("Proceso 2");
         
         hilo.start();
-        hilo2.start();
-        listaE.Errorimprimir();
+        hilo2.start();        
     }
     
 }

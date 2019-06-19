@@ -1,23 +1,14 @@
 package Listas;
 
-/**
- *
- * @author libni
- */
-public class NodoTkn {
-    
-    private int numero;
-    private String lexema;
-    private int fila;
-    private int columna;
-    private int idtkn;
-    private String tkn;
-    private NodoTkn siguiente;
 
-    @Override
-    public String toString() {
-        return "NodoTkn{" + "numero=" + numero + ", lexema=" + lexema + ", fila=" + fila + ", columna=" + columna + ", idtkn=" + idtkn + ", tkn=" + tkn + ", siguiente=" + siguiente + '}';
-    }
+public class NodoTkn {
+   int numero;
+   String lexema;
+   int fila;
+   int columna;
+   int idtkn;
+   String tkn;
+   NodoTkn siguiente;
     
 
     public NodoTkn(){        
@@ -87,8 +78,8 @@ public class NodoTkn {
 
     public void setTkn(String tkn) {
         this.tkn = tkn;
-    }    
-
+    }
+    
     public boolean tieneSiguiente(){
      return siguiente!=null;       
     }    

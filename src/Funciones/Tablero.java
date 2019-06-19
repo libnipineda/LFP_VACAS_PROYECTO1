@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
  */
 public class Tablero {
   int Dimx=0, Dimy=0,Posx = 0, Posy = 0, x = 0, y = 0, a = 0, b = 0;
+  String imagen1, imagen2;
   NodoTkn valor = new NodoTkn();  
   
   public void FunEdificio(){
@@ -204,10 +205,42 @@ public class Tablero {
               obtener = true;
           }
       }
+      if(obtener){
+          try
+          {
+           if(valor.getTkn().equals("Cadena")){
+               imagen1 = valor.getLexema();
+           }   
+          }
+          catch(Exception e){
+              JOptionPane.showMessageDialog(null, "No se encontro la ruta de la imagen, para el personaje");
+          }
+      }
   }
   
   public void ObtenerImagenPersonaje(){
+       boolean img = false, obtener = false;
       
+      if(valor.getLexema().equals("Enemigo")){
+          img = true;
+      }
+      if(img){
+          if(valor.getLexema().equals("imagen")){
+              img = false;
+              obtener = true;
+          }
+      }
+      if(obtener){
+          try
+          {
+           if(valor.getTkn().equals("Cadena")){
+               imagen1 = valor.getLexema();
+           }   
+          }
+          catch(Exception e){
+              JOptionPane.showMessageDialog(null, "No se encontro la ruta de la imagen para el enemigo");
+          }
+      }
   }
   
   public void FunMovimientos(){
