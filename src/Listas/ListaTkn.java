@@ -12,7 +12,7 @@ public class ListaTkn {
     public boolean adicionar(int numero, String lexema, int fila, int columna, int idtkn, String tkn){
       if(inicio == null)
       {
-          inicio = new NodoTkn(null, numero,lexema,fila,columna,idtkn,tkn);
+          inicio = new NodoTkn(null,numero,lexema,fila,columna,idtkn,tkn);
           tamaño++;
           return true;
       }
@@ -21,21 +21,23 @@ public class ListaTkn {
           while(temp.tieneSiguiente()){
               temp = temp.getSiguiente();
           }
-          temp.setSiguiente( new NodoTkn(null, numero,lexema,fila,columna,idtkn,tkn));
+          temp.setSiguiente( new NodoTkn(null,numero,lexema,fila,columna,idtkn,tkn));
           tamaño++;
           return true;
       }
     }
     
    public void imprimir(){
-        if(inicio == null)
-        {
-            System.out.println("No se registro ningun dato.");
-        }        
-        else
-        {
-            System.out.println("Datos insertados correctamente.");
+        NodoTkn temp = inicio;
+        if(inicio == null){
+            System.out.println("No se registraron datos.");
         }
+        else{
+         while(temp.tieneSiguiente()){
+          temp = temp.getSiguiente();
+        }
+        System.out.println("Datos ingresados correctamente.");   
+        }                    
     } 
    
 }

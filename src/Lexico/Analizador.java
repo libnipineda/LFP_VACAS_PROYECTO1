@@ -2,11 +2,13 @@ package Lexico;
 
 import Funciones.Proceso;
 import Listas.ELista;
+import Listas.NodoTkn;
 import Listas.ListaTkn;
 import javax.swing.JOptionPane;
 
 public class Analizador {
     ListaTkn lista = new ListaTkn();
+    NodoTkn nodo = new NodoTkn();
     ELista listaE = new ELista();
     int idtkn;
     int nutknen = 0;
@@ -67,6 +69,7 @@ public class Analizador {
 //                       System.out.println("Estado 2");
 //                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: Numero"+" idtkn: "+a);                       
                        lista.adicionar(nutknen, concatenar, fila, columna, a, "Numero");
+                       nodo.setLexema(concatenar);
                        nutknen++; concatenar="";
                     }
                     break;
@@ -74,7 +77,8 @@ public class Analizador {
                     Patron(concatenar); i--; estado = estado-1; estado =0;
 //                    System.out.println("Estado 3");
 //                    System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
-                    lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);                    
+                    lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
+                    nodo.setLexema(concatenar);
                     nutknen++; concatenar="";
                     break;
                 case 4:
@@ -96,7 +100,8 @@ public class Analizador {
                        Patron(concatenar); i--; estado = estado-1; estado =0;
 //                       System.out.println("Estado 5");
 //                       System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
-                       lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);                       
+                       lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
+                       nodo.setLexema(concatenar);
                        nutknen++; concatenar="";
                     }
                     break;
@@ -112,7 +117,8 @@ public class Analizador {
                   Patron(concatenar); i--; estado = estado-1; estado =0;
 //                  System.out.println("Estado 7");
 //                  System.out.println("numero: " + nutknen+" lexema: "+concatenar+" columna: "+columna+" fila: " +fila+" Token: "+token+" idtkn: "+idtkn);
-                  lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);                  
+                  lista.adicionar(nutknen, concatenar, fila, columna, idtkn, token);
+                  nodo.setLexema(concatenar);
                   nutknen++; concatenar="";
                     break;
             }

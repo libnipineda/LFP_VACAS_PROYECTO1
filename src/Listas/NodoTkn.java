@@ -13,6 +13,11 @@ public class NodoTkn {
     private int idtkn;
     private String tkn;
     private NodoTkn siguiente;
+
+    @Override
+    public String toString() {
+        return "NodoTkn{" + "numero=" + numero + ", lexema=" + lexema + ", fila=" + fila + ", columna=" + columna + ", idtkn=" + idtkn + ", tkn=" + tkn + ", siguiente=" + siguiente + '}';
+    }
     
 
     public NodoTkn(){        
