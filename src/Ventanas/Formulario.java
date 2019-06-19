@@ -66,11 +66,11 @@ public class Formulario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JButton boton = new JButton("Boton" + indice);
+        JButton boton = new JButton(""+indice);
         panel.add(boton);
         botones.add(boton);
         indice++; // incrementa
-        panel.updateUI();
+        panel.updateUI();          
     }//GEN-LAST:event_jButton1ActionPerformed
 
     

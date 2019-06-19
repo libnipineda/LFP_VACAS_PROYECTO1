@@ -8,8 +8,13 @@ import Reportes.Reporte1;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.*;
+import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyleContext;
 
 
 public class Formulario1 extends javax.swing.JFrame {
@@ -43,6 +48,7 @@ public class Formulario1 extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         ANALIZAR = new javax.swing.JMenuItem();
         Juego = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         Reporte1 = new javax.swing.JMenuItem();
         Reporte2 = new javax.swing.JMenuItem();
@@ -53,6 +59,8 @@ public class Formulario1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txtArea.setBackground(new java.awt.Color(255, 255, 255));
+        txtArea.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(txtArea);
 
         jMenu1.setText("Archivo");
@@ -108,6 +116,14 @@ public class Formulario1 extends javax.swing.JFrame {
             }
         });
         jMenu3.add(Juego);
+
+        jMenuItem1.setText("Pintar Palabras");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
 
         jMenuBar1.add(jMenu3);
 
@@ -329,6 +345,11 @@ public class Formulario1 extends javax.swing.JFrame {
          this.setVisible(false);
     }//GEN-LAST:event_JuegoActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        Pintar();        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     public String Abrir(File archivo)
     {
         String documento="";
@@ -380,365 +401,189 @@ public class Formulario1 extends javax.swing.JFrame {
         return mensaje;
     }
 
-// ---------------------------------------------------------------- pintar letras ----------------------------------------------------------
-        
-    NodoTkn hola = new NodoTkn();    
-    String comparar; int bindice;        
-   
+    NodoTkn hola = new NodoTkn();
+    String comparar; int bindice;
     
-    public void Pintar(String dato)
+// ---------------------------------------------------------------- pintar letras ----------------------------------------------------------
+               
+       public void Pintar()
     {
-        comparar = txtArea.getText();
+        comparar = txtArea.getText();                                       
         
-        NodoTkn aux = hola;
-        String temp;
-        temp = dato;
-        while(aux.tieneSiguiente()){
-            aux = aux.getSiguiente();
-        }
-        
-        System.out.println(temp);
-//        aux.getLexema().equals("Nivel");
-//        bindice = txtArea.getText().indexOf(aux.getLexema());
-//        pintarReservadas(bindice,comparar);
-//                
-//        aux.getLexema().equals("codigo");
-//        bindice = txtArea.getText().indexOf(aux.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("nombre");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarIdentificadores(bindice,comparar);
-//        
-//        aux.getLexema().equals("Edificio");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("DimensionX");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("DimensionY");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("Bloque");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("PosicionX");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("PosicionY");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("Escalera");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("Personaje");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("imagen");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("Enemigo");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("Movimiento");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarReservadas(bindice,comparar);
-//        
-//        aux.getLexema().equals("0");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarNumeros(bindice,comparar);
-//        
-//        aux.getLexema().equals("1");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarNumeros(bindice,comparar);
-//        
-//        aux.getLexema().equals("2");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarNumeros(bindice,comparar);
-//        
-//        aux.getLexema().equals("3");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarNumeros(bindice,comparar);
-//        
-//        aux.getLexema().equals("4");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarNumeros(bindice,comparar);
-//        
-//        aux.getLexema().equals("5");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarNumeros(bindice,comparar);
-//                
-//        aux.getLexema().equals("6");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarNumeros(bindice,comparar);
-//        
-//        aux.getLexema().equals("7");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarNumeros(bindice,comparar);
-//        
-//        aux.getLexema().equals("8");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarNumeros(bindice,comparar);
-//        
-//        aux.getLexema().equals("9");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarNumeros(bindice,comparar);
-//        
-//        aux.getTkn().equals("cadena");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarCadena(bindice,comparar);
-//        
-//        aux.getLexema().equals("<");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarMenoryMayor(bindice,comparar);
-//        
-//        aux.getLexema().equals(">");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarMenoryMayor(bindice,comparar);
-//        
-//        aux.getLexema().equals("=");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarIgual(bindice,comparar);
-//        
-//        aux.getLexema().equals("/");
-//        bindice = txtArea.getText().indexOf(hola.getLexema());
-//        pintarBarra(bindice,comparar);                
+        bindice = txtArea.getText().indexOf("Nivel");
+        pintarReservadas(bindice,comparar);
+                        
+        bindice = txtArea.getText().indexOf("codigo");
+        pintarReservadas(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("nombre");
+        pintarIdentificadores(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("Edificio");
+        pintarReservadas(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("DimensionX");
+        pintarReservadas(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("DimensionY");
+        pintarReservadas(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("Bloque");
+        pintarReservadas(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("PosicionX");
+        pintarReservadas(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("PosicionY");
+        pintarReservadas(bindice,comparar);
+               
+        bindice = txtArea.getText().indexOf("Escalera");
+        pintarReservadas(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("Personaje");
+        pintarReservadas(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("imagen");
+        pintarReservadas(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("Enemigo");
+        pintarReservadas(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("Movimiento");
+        pintarReservadas(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("0");
+        pintarNumeros(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("1");
+        pintarNumeros(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("2");
+        pintarNumeros(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("3");
+        pintarNumeros(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("4");
+        pintarNumeros(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("5");
+        pintarNumeros(bindice,comparar);
+                        
+        bindice = txtArea.getText().indexOf("6");
+        pintarNumeros(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("7");
+        pintarNumeros(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("8");
+        pintarNumeros(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("9");
+        pintarNumeros(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("cadena");
+        pintarCadena(bindice,comparar);
+               
+        bindice = txtArea.getText().indexOf("<");
+        pintarMenoryMayor(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf(">");
+        pintarMenoryMayor(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("=");
+        pintarIgual(bindice,comparar);
+                
+        bindice = txtArea.getText().indexOf("/");
+        pintarBarra(bindice,comparar);                
     }
     
     public void pintarReservadas(int pindice, String pcomparar)
     {
-        NodoTkn aux = hola;
-        while(aux.tieneSiguiente()){
-            aux = aux.getSiguiente();
-        }
-        
-        bindice = pindice + aux.getLexema().length() - 1;
-        
-        try        
-        {
-            txtArea.select(pindice, aux.getLexema().length());            
-            txtArea.setSelectionColor(Color.cyan);
-            txtArea.setSelectionStart(txtArea.getText().length());
-            
-            pcomparar = txtArea.getText().substring(pindice + aux.getLexema().length());
-            pindice = pcomparar.indexOf(hola.getLexema()) + pindice + aux.getLexema().length();
-            
-            if(pindice != bindice)
-            {
-                pintarReservadas(pindice,pcomparar);
-            }
-            else
-            {
-                bindice = 0;
-            }
-        }
-        catch(Exception e)
-        {
-            
-        }        
+        if(pindice == -1){
+              System.out.println("palabra no encontrada");
+          }
+          else
+          {
+              System.out.println("Palabra encontrada");                            
+              txtArea.setForeground(Color.cyan);
+          }     
     }
     
     public void pintarNumeros(int pindice, String pcomparar)
     {                 
-        NodoTkn aux = hola;
-        while(aux.tieneSiguiente()){
-            aux = aux.getSiguiente();
-        }
+        if(pindice == -1){
+              System.out.println("palabra no encontrada");
+          }
+          else
+          {
+              System.out.println("Palabra encontrada");              
+              txtArea.setForeground(Color.red);
+          }
         
-        try        
-        {
-            bindice = pindice + aux.getLexema().length() - 1;
-            
-            txtArea.select(pindice, aux.getLexema().length());            
-            txtArea.setSelectionColor(Color.red);
-            txtArea.setSelectionStart(txtArea.getText().length());
-            
-            pcomparar = txtArea.getText().substring(pindice + aux.getLexema().length());
-            pindice = pcomparar.indexOf(hola.getLexema()) + pindice + aux.getLexema().length();
-            
-            if(pindice != bindice)
-            {
-                pintarNumeros(pindice,pcomparar);
-            }
-            else
-            {
-                bindice = 0;
-            }
-        }
-        catch(Exception e)
-        {
-            
-        }     
     }
     
     public void pintarIdentificadores(int pindice, String pcomparar){
-        NodoTkn aux = hola;
-        while(aux.tieneSiguiente()){
-            aux = aux.getSiguiente();
-        }
-        try{
-            bindice = pindice + aux.getLexema().length() - 1;
-            
-            txtArea.select(pindice, aux.getLexema().length());
-            txtArea.setSelectionColor(Color.yellow);
-            txtArea.setSelectionStart(txtArea.getText().length());
-            
-            pcomparar = txtArea.getText().substring(pindice + aux.getLexema().length());
-            pindice = pcomparar.indexOf(hola.getLexema()) + pindice + aux.getLexema().length();
-            
-            if(pindice != bindice)
-            {
-                pintarIdentificadores(pindice,pcomparar);
-            }
-            else
-            {
-                bindice = 0;
-            }
-        }
-        catch(Exception e){
-        
-        }
+        if(pindice == -1){
+              System.out.println("palabra no encontrada");
+          }
+          else
+          {
+              System.out.println("Palabra encontrada");              
+              txtArea.setForeground(Color.yellow);
+          }
     }
     
     
     public void pintarCadena(int pindice, String pcomparar)
     {
-        NodoTkn aux = hola;
-        while(aux.tieneSiguiente()){
-            aux = aux.getSiguiente();
-        }
-        
-        try                    
-        {
-            bindice = pindice + aux.getLexema().length() - 1;
-            txtArea.select(pindice, aux.getLexema().length());
-            txtArea.setSelectionColor(Color.green);
-            txtArea.setSelectionStart(txtArea.getText().length());
-            
-            pcomparar = txtArea.getText().substring(pindice + aux.getLexema().length());
-            pindice = pcomparar.indexOf(hola.getLexema()) + pindice + aux.getLexema().length();
-            
-            if(pindice != bindice)
-            {
-                pintarCadena(pindice,pcomparar);
-            }
-            else
-            {
-                bindice = 0;
-            }
-        }
-        catch(Exception e)
-        {
-            
-        }  
+        if(pindice == -1){
+              System.out.println("palabra no encontrada");
+          }
+          else
+          {
+              System.out.println("Palabra encontrada");              
+              txtArea.setForeground(Color.green);
+          }
     }
     
     public void pintarMenoryMayor(int pindice, String pcomparar)
     {
-        NodoTkn aux = hola;
-        while(aux.tieneSiguiente()){
-            aux = aux.getSiguiente();
-        }
-        
-        try        
-        {
-            bindice = pindice + aux.getLexema().length() - 1;
-            txtArea.select(pindice, aux.getLexema().length());            
-            txtArea.setSelectionColor(Color.orange);
-            txtArea.setSelectionStart(txtArea.getText().length());
-            
-            pcomparar = txtArea.getText().substring(pindice + aux.getLexema().length());
-            pindice = pcomparar.indexOf(hola.getLexema()) + pindice + aux.getLexema().length();
-            
-            if(pindice != bindice)
-            {
-                pintarMenoryMayor(pindice,pcomparar);
-            }
-            else
-            {
-                bindice = 0;
-            }
-        }
-        catch(Exception e)
-        {
-            
-        }  
+        if(pindice == -1){
+              System.out.println("palabra no encontrada");
+          }
+          else
+          {
+              System.out.println("Palabra encontrada");              
+              txtArea.setForeground(Color.orange);
+          }
     }
     
     public void pintarIgual(int pindice, String pcomparar)
     {
-        NodoTkn aux = hola;
-        while(aux.tieneSiguiente()){
-            aux = aux.getSiguiente();
-        }
-        try        
-        {
-            bindice = pindice + aux.getLexema().length() - 1;
-            
-            txtArea.select(pindice, aux.getLexema().length());            
-            txtArea.setSelectionColor(Color.pink);
-            txtArea.setSelectionStart(txtArea.getText().length());
-            
-            pcomparar = txtArea.getText().substring(pindice + aux.getLexema().length());
-            pindice = pcomparar.indexOf(hola.getLexema()) + pindice + aux.getLexema().length();
-            
-            if(pindice != bindice)
-            {
-                pintarIgual(pindice,pcomparar);
-            }
-            else
-            {
-                bindice = 0;
-            }
-        }
-        catch(Exception e)
-        {
-            
-        }  
+       if(pindice == -1){
+              System.out.println("palabra no encontrada");
+          }
+          else
+          {
+              System.out.println("Palabra encontrada");              
+              txtArea.setForeground(Color.pink);
+          }
     }
     
     public void pintarBarra(int pindice, String pcomparar)
     {
-        NodoTkn aux = hola;
-        while(aux.tieneSiguiente()){
-            aux = aux.getSiguiente();
-        }
-        
-        try        
-        {
-            bindice = pindice + aux.getLexema().length() - 1;
-            
-            txtArea.select(pindice, aux.getLexema().length());            
-            txtArea.setSelectionColor(Color.pink);
-            txtArea.setSelectionStart(txtArea.getText().length());
-            
-            pcomparar = txtArea.getText().substring(pindice + aux.getLexema().length());
-            pindice = pcomparar.indexOf(hola.getLexema()) + pindice + aux.getLexema().length();
-            
-            if(pindice != bindice)
-            {
-                pintarBarra(pindice,pcomparar);
-            }
-            else
-            {
-                bindice = 0;
-            }
-        }
-        catch(Exception e)
-        {
-            
-        }  
-    }        
+       if(pindice == -1){
+              System.out.println("palabra no encontrada");
+          }
+          else
+          {
+              System.out.println("Palabra encontrada");              
+              txtArea.setForeground(Color.pink);
+          }
+    } 
+    
+//  ---------------------------------------------------------------- main ----------------------------------------------------------       
     /**
      * @param args the command line arguments
      */
@@ -788,6 +633,7 @@ public class Formulario1 extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

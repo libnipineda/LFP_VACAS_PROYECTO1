@@ -29,7 +29,6 @@ public class ListaTkn {
           temp.setSiguiente(new NodoTkn(null, numero,lexema,fila,columna,idtkn,tkn));
           tamaño++;
           imprimir();
-          PintaTxt();
           return true;
       }
     }
@@ -54,19 +53,8 @@ public class ListaTkn {
                     + "<td><strong>" + temp.fila + "</strong></td>"
                     + "<td><strong>" + temp.columna + "</strong></td>"
                     + "</tr>";
-            crear.ReporteTkn(filas);            
+            crear.ReporteTkn(filas);          
         }
     }
-    
-    public void PintaTxt(){
-        NodoTkn aux = inicio;
-        String valores;
-        while(aux.tieneSiguiente()){
-            aux = aux.getSiguiente();
-        }
-        //System.out.println(aux.lexema);
-        valores = aux.lexema;
-        form.Pintar(valores);
-    }
-    
+        
 }
