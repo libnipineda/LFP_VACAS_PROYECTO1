@@ -53,7 +53,7 @@ public class ELista {
             while(temp.Errorsiguiente()){
                 temp = temp.getSig();
             }
-            reporte = "<tr>"
+            reporte = reporte + "<tr>"
                     +"<td><strong>" + temp.getEnum() + "</td></strong>"
                     +"<td><strong>" + temp.getElex() + "</td></strong>"
                     +"<td><strong>" + temp.getEcol() + "</td></strong>"

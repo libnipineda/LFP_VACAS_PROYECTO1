@@ -19,7 +19,7 @@ public class Reporte1 {
         try
         {
          FileWriter archivo = new FileWriter("C:/Users/libni/Desktop/ReporteToken.html");
-         PrintWriter write = new PrintWriter(archivo);
+         PrintWriter write = new PrintWriter(archivo);       
          write.println("<html>");
          write.println("<head>");
          write.println("<title> LFP PROYECTO NO. 1  TABLA DE TOKEN´S</title>");
@@ -31,12 +31,14 @@ public class Reporte1 {
          write.println("<td><strong>No</strong></td>");
          write.println("<td><strong>Lexema</strong></td>");
          write.println("<td><strong>ID_Token</strong></td>");
-         write.println("<td><strong>Token</strong></td>");         
+         write.println("<td><strong>Token</strong></td>");
+         write.println("<td><strong>Fila</strong></td>");
+         write.println("<td><strong>Columna</strong></td>"); 
          write.println("</tr>");
          write.println(datos);
          write.println( "</table>");
          write.println("</body>");
-         write.println( "</html>");
+         write.println( "</html>");        
         archivo.close();        
         }
         catch(Exception e)

@@ -39,15 +39,17 @@ public class ListaTkn {
         {
             NodoTkn temp = inicio;
             while(temp.tieneSiguiente()){
-                temp.getSiguiente();               
+                temp = temp.getSiguiente();               
             }            
-//            System.out.println(temp.numero+" " +temp.lexema+" "+temp.fila+" "+temp.columna+" "+temp.idtkn+" "+temp.tkn);
-               filas = filas + "<tr>" 
-                    +"<td><strong>"+ temp.numero +"</strong></td>"
-                    +"<td><strong>"+ temp.lexema +"<td><strong>"
-                    +"<td><strong>"+ temp.idtkn +"</strong></td>"
-                    +"<td><strong>"+ temp.tkn + "</strong></td>"
-                    +"</tr>";
+//            System.out.println(temp.numero+" " +temp.lexema+" "+temp.fila+" "+temp.columna+" "+temp.idtkn+" "+temp.tkn);               
+               filas = filas + "<tr>"
+                    + "<td><strong>" + temp.numero + "</strong></td>"                    
+                    + "<td><strong>" + temp.lexema + "</strong></td>"
+                    + "<td><strong>" + temp.idtkn + "</strong></td>"
+                    + "<td><strong>" + temp.tkn + "</strong></td>"
+                    + "<td><strong>" + temp.fila + "</strong></td>"
+                    + "<td><strong>" + temp.columna + "</strong></td>"
+                    + "</tr>";
             crear.ReporteTkn(filas);
         }
     }             
