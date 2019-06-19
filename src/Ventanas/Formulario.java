@@ -14,7 +14,7 @@ public class Formulario extends javax.swing.JFrame {
         botones = new ArrayList<>();
         indice = 0;
     }
-
+    int EdificioX, EdificioY, Bloquex, Bloquey, Escalerax, Escaleray, Movimientox, Movimientoy;
     // para cambiar las dimensiones de 3 columnas realizarlo en el griedLayout rows y el valor
     
     @SuppressWarnings("unchecked")
@@ -73,6 +73,26 @@ public class Formulario extends javax.swing.JFrame {
         panel.updateUI();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    public void Eficio(int x, int y){
+        EdificioX = x;
+        EdificioY = y;
+    }
+    
+    public void Bloque(int x, int y){
+        Bloquex = x;
+        Bloquey = y;
+    }
+    
+    public void Escalera(int x, int y){
+        Escalerax = x;
+        Escaleray = y;
+    }
+    
+    public void Movimiento(int x, int y){
+        Movimientox = x;
+        Movimientoy = y;
+    }
     /**
      * @param args the command line arguments
      */

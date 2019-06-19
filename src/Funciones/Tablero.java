@@ -2,6 +2,7 @@ package Funciones;
 
 import Listas.ListaTkn;
 import Listas.NodoTkn;
+import Ventanas.Formulario;
 import javax.swing.JOptionPane;
 
 
@@ -12,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Tablero {
   int Dimx=0, Dimy=0,Posx = 0, Posy = 0, x = 0, y = 0, a = 0, b = 0;
   String imagen1, imagen2;
-  NodoTkn valor = new NodoTkn();  
+  NodoTkn valor = new NodoTkn();  Formulario form = new Formulario();
   
   public void FunEdificio(){
       boolean num = false,num2 = false,numx = false, numy = false;      
@@ -65,7 +66,7 @@ public class Tablero {
   
   public void DimensionEdificio(){
       if(Dimx > 0 && Dimx <= 15 || Dimy >0 && Dimy <= 15){
-          
+          form.Eficio(Dimx, Dimy);
       }
       else
       {
@@ -125,7 +126,7 @@ public class Tablero {
   
   public void DimensionBloque(){
       if(Posx >= 0 || Posy >= 0){
-          
+       form.Bloque(Posx, Posy);
       }
       else
       {
@@ -185,7 +186,7 @@ public class Tablero {
   
   public void DimensionEscalera(){
       if(x >= 0 || y >= 0){
-          
+          form.Escalera(x, y);
       }
       else
       {
@@ -296,7 +297,7 @@ public class Tablero {
 
   public void DimensionMovimiento(){
       if(a >= 0 || b >=0 ){
-          
+          form.Movimiento(a, b);
       }
       else
       {

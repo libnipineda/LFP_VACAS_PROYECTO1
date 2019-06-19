@@ -1,6 +1,7 @@
 package Listas;
 
 import Reportes.Reporte1;
+import Ventanas.Formulario1;
 
 public class ListaTkn {
     
@@ -9,6 +10,8 @@ public class ListaTkn {
     
     Reporte1 crear = new Reporte1();
     String filas="";
+    
+    Formulario1 form = new Formulario1();
     
    public boolean adicionar(int numero, String lexema, int fila, int columna, int idtkn, String tkn){
        
@@ -26,6 +29,7 @@ public class ListaTkn {
           temp.setSiguiente(new NodoTkn(null, numero,lexema,fila,columna,idtkn,tkn));
           tamaño++;
           imprimir();
+          PintaTxt();
           return true;
       }
     }
@@ -50,7 +54,19 @@ public class ListaTkn {
                     + "<td><strong>" + temp.fila + "</strong></td>"
                     + "<td><strong>" + temp.columna + "</strong></td>"
                     + "</tr>";
-            crear.ReporteTkn(filas);
+            crear.ReporteTkn(filas);            
         }
-    }             
+    }
+    
+    public void PintaTxt(){
+        NodoTkn aux = inicio;
+        String valores;
+        while(aux.tieneSiguiente()){
+            aux = aux.getSiguiente();
+        }
+        //System.out.println(aux.lexema);
+        valores = aux.lexema;
+        form.Pintar(valores);
+    }
+    
 }
