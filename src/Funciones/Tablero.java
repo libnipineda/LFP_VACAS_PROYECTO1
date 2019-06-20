@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 public class Tablero {
   int Dimx=0, Dimy=0,Posx = 0, Posy = 0, x = 0, y = 0, a = 0, b = 0;
   String imagen1, imagen2;
+  
   NodoTkn valor = new NodoTkn();  Formulario form = new Formulario();
   
   public void FunEdificio(){
@@ -66,7 +67,7 @@ public class Tablero {
   
   public void DimensionEdificio(){
       if(Dimx > 0 && Dimx <= 15 || Dimy >0 && Dimy <= 15){
-          form.Eficio(Dimx, Dimy);
+          form.Edificio(Dimx, Dimy);
       }
       else
       {
