@@ -3,7 +3,12 @@ package Funciones;
 import Listas.ListaTkn;
 import Listas.NodoTkn;
 import Ventanas.Formulario;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.*;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 
 /**
@@ -13,11 +18,14 @@ import javax.swing.JOptionPane;
 public class Tablero {
   int Dimx=0, Dimy=0,Posx = 0, Posy = 0, x = 0, y = 0, a = 0, b = 0;
   String imagen1, imagen2;
-  
+      
   NodoTkn valor = new NodoTkn();  Formulario form = new Formulario();
+  ListaTkn lista = new ListaTkn();
+  
+  
   
   public void FunEdificio(){
-      boolean num = false,num2 = false,numx = false, numy = false;      
+      boolean num = false,num2 = false,numx = false, numy = false;
       //------------------------------------------- Coordenada X ----------------------------------------------------------
       if(valor.getLexema().equals("DimensionX")){
           num = true;          
@@ -193,7 +201,7 @@ public class Tablero {
       {
           JOptionPane.showMessageDialog(null,"Los intervalos no permiten crear la escalera, intente cambiar las dimensiones.");
       }
-  }
+  }  
   
   public void ObtenerImagenEnemigo(){
       boolean img = false, obtener = false;
@@ -204,7 +212,7 @@ public class Tablero {
       if(img){
           if(valor.getLexema().equals("imagen")){
               img = false;
-              obtener = true;
+              obtener = true;              
           }
       }
       if(obtener){
@@ -212,7 +220,8 @@ public class Tablero {
           {
            if(valor.getTkn().equals("Cadena")){
                imagen1 = valor.getLexema();
-           }   
+               
+            }   
           }
           catch(Exception e){
               JOptionPane.showMessageDialog(null, "No se encontro la ruta de la imagen, para el personaje");
@@ -293,8 +302,7 @@ public class Tablero {
               DimensionEdificio();
           }
       }
-  }
-  
+  }  
 
   public void DimensionMovimiento(){
       if(a >= 0 || b >=0 ){

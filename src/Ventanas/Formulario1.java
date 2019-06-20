@@ -237,7 +237,7 @@ public class Formulario1 extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null,"LFP PRACTICA\n Uzzi Libni Aarón Pineda Solórzano \n carné: 201403541");
+        JOptionPane.showMessageDialog(null,"LFP PRACTICA\n Uzzi Libni Aarón Pineda Solórzano \n carné: 201403541");        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
